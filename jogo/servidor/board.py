@@ -22,13 +22,13 @@ class Board:
         for piece, squares in white_pieces.items():
             for square in squares:
                 piece_pos = square.current_pos
-                x, y = 7 - int(piece_pos[1]), servidor.col_map[piece_pos[0]]
-                self.board[x][y] = square
+                x, y = servidor.col_map[piece_pos[0]], 8 - int(piece_pos[1])
+                self.board[y][x] = square
         for piece, squares in black_pieces.items():
             for square in squares:
                 piece_pos = square.current_pos
-                x, y = 7 - int(piece_pos[1]), servidor.col_map[piece_pos[0]]
-                self.board[x][y] = square
+                x, y = servidor.col_map[piece_pos[0]], 8 - int(piece_pos[1])
+                self.board[y][x] = square
 
     def print_board(self):
         for i, row in enumerate(self.board):

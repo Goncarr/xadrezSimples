@@ -13,20 +13,19 @@ class Pawn(Piece):
         Se peça na diagonal, adiciona a available
         """
         self.available_moves = []
-        current_x, current_y = servidor.col_map(self.current_pos[0]), int(self.current_pos[1])
+        current_x, current_y = servidor.col_map[self.current_pos[0]], int(self.current_pos[1])
         if self.number_of_turns == 0:
             self.available_moves.append([current_x, current_y + 1])
             self.available_moves.append([current_x, current_y + 2])
         else:
             self.available_moves.append([current_x, current_y + 1])
-        print(self.available_moves)
 
 
-    def move_pawn(self,move:str, board:list):
+
+    def move(self,move:str, board:list):
         current_x, current_y = servidor.col_map(self.current_pos[0]), int(self.current_pos[1])
         move_x, move_y = servidor.col_map(move[0]), int(move[1])
         if move in self.available_moves:
             board[current_x][current_y] = "  "
             board[move_x][move_y] = self.piece
             self.current_pos = move
-
