@@ -1,5 +1,5 @@
 import servidor
-
+from servidor.pieces.piece import Piece
 class Board:
     def __init__(self):
         self.board: list = []
@@ -18,21 +18,26 @@ class Board:
         white_pieces:dict - dicionário com as pecas brancas
         black_pieces:dict - dicionário com as pecas pretas
     """
-    def put_pieces(self, white_pieces: dict, black_pieces: dict):
+    def put_pieces(self, white_pieces: dict[str: list[Piece]], black_pieces: dict):
         for piece, squares in white_pieces.items():
             for square in squares:
-                x, y = square[0], square[1]
-                self.board[x][y] = piece
+                piece_pos = square.current_pos
+                x, y = 7 - int(piece_pos[1]), servidor.col_map[piece_pos[0]]
+                self.board[x][y] = square
         for piece, squares in black_pieces.items():
             for square in squares:
-                x, y = square[0], square[1]
-                self.board[x][y] = piece
+                piece_pos = square.current_pos
+                x, y = 7 - int(piece_pos[1]), servidor.col_map[piece_pos[0]]
+                self.board[x][y] = square
 
     def print_board(self):
         for i, row in enumerate(self.board):
             print(8 - i, end=": ")
             for j, col in enumerate(row):
-                print(col, end=" ")
+                if col == "  ":
+                    print(col, end=" ")
+                else:
+                    print(col.piece, end=" ")
             print("\n")
         print(
             " " * 3 + "a" + " " * 2 + "b" + " " * 2 + "c" + " " * 2 + "d" + " " * 2 + "e" + " " * 2 + "f" + " " * 2 + "g" + " " * 2 + "h")

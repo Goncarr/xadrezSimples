@@ -1,25 +1,54 @@
 # dicionário com as coordenadas das peças brancas
 from servidor.pieces.pawn import Pawn
-pawn = Pawn("wP", )
+
+wpawn = Pawn("wP", "a1")
+wpawn2 = Pawn("wP", "b1")
+wpawn3 = Pawn("wP", "c1")
+wpawn4 = Pawn("wP", "d1")
+wpawn5 = Pawn("wP", "e1")
+wpawn6 = Pawn("wP", "f1")
+wpawn7 = Pawn("wP", "g1")
+wpawn8 = Pawn("wP", "h1")
 
 DEFAULT_WHITE_BOARD_MAP = {
-    "wP": [(6, 0), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6), (6, 7)],
-    "wN": [(7, 1), (7, 6)],
-    "wB": [(7, 2), (7, 5)],
-    "wR": [(7, 0), (7, 7)],
-    "wQ": [(7, 3)],
-    "wK": [(7, 4)],
+    "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8]
 }
 
+
+"""
+DEFAULT_WHITE_BOARD_MAP = {
+    "wP": ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+    "wN": ["b0", "g0"],
+    "wB": ["c0", "f0"],
+    "wR": ["a0", "h0"],
+    "wQ": ["d0"],
+    "wK": ["e0"],
+}
+"""
+bpawn = Pawn("bP", "a6")
+bpawn2 = Pawn("bP", "b6")
+bpawn3 = Pawn("bP", "c6")
+bpawn4 = Pawn("bP", "d6")
+bpawn5 = Pawn("bP", "e6")
+bpawn6 = Pawn("bP", "f6")
+bpawn7 = Pawn("bP", "g6")
+bpawn8 = Pawn("bP", "h6")
+
+DEFAULT_BLACK_BOARD_MAP = {
+    "bP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
+}
+
+"""
 # dicionário com as coordenadas das peças pretas
 DEFAULT_BLACK_BOARD_MAP = {
-    "bP": [(1, 0), (1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7)],
-    "bN": [(0, 1), (0, 6)],
-    "bB": [(0, 2), (0, 5)],
-    "bR": [(0, 0), (0, 7)],
-    "bQ": [(0, 3)],
-    "bK": [(0, 4)],
+    "bP": ["a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"],
+    "bN": ["b7", "f7"],
+    "bB": ["c7", "g7"],
+    "bR": ["a7", "h7"],
+    "bQ": ["d7"],
+    "bK": ["e7"],
 }
+"""
 
 col_map = {
     "a":0,

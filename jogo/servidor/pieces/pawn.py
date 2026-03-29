@@ -22,9 +22,11 @@ class Pawn(Piece):
         print(self.available_moves)
 
 
-    def move_pawn(self,move:list, board:list[list[str,str]]):
+    def move_pawn(self,move:str, board:list):
+        current_x, current_y = servidor.col_map(self.current_pos[0]), int(self.current_pos[1])
+        move_x, move_y = servidor.col_map(move[0]), int(move[1])
         if move in self.available_moves:
-            board[self.current_pos[0]][self.current_pos[1]] = "  "
-            board[move[0]][move[1]] = self.piece
+            board[current_x][current_y] = "  "
+            board[move_x][move_y] = self.piece
             self.current_pos = move
 
