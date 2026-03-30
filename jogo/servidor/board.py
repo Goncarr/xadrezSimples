@@ -18,7 +18,7 @@ class Board:
         white_pieces:dict - dicionário com as pecas brancas
         black_pieces:dict - dicionário com as pecas pretas
     """
-    def put_pieces(self, white_pieces: dict[str: list[Piece]], black_pieces: dict):
+    def put_pieces(self, white_pieces: dict[str, list[Piece]], black_pieces: dict):
         for piece, squares in white_pieces.items():
             for square in squares:
                 piece_pos = square.current_pos

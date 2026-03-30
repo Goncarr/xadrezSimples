@@ -8,11 +8,13 @@ if __name__ == "__main__":
     while True:
         chess_board.print_board()
         position = input("Escolha a posição da peça")
-        x, y =  servidor.col_map[position[0]], int(position[1]),
+        x, y =  servidor.col_map[position[0]], 8 - int(position[1])
         current_pos = chess_board.board[y][x]
         if current_pos != "  ":
-            piece = chess_board.board[y][x]
-            print("\n\n\n\n\n")
-            print(piece.check_available_moves(chess_board.board))
+            piece = current_pos
+            piece.check_available_moves(chess_board.board)
+            print(piece.available_moves)
+            new_pos = input("Select a square to move on to: ")
+            piece.move(piece, new_pos, chess_board.board)
         else:
             print("uh oh")

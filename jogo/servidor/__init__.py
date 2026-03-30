@@ -14,17 +14,6 @@ DEFAULT_WHITE_BOARD_MAP = {
     "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8]
 }
 
-
-"""
-DEFAULT_WHITE_BOARD_MAP = {
-    "wP": ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
-    "wN": ["b0", "g0"],
-    "wB": ["c0", "f0"],
-    "wR": ["a0", "h0"],
-    "wQ": ["d0"],
-    "wK": ["e0"],
-}
-"""
 bpawn = Pawn("bP", "a7")
 bpawn2 = Pawn("bP", "b7")
 bpawn3 = Pawn("bP", "c7")
@@ -37,6 +26,17 @@ bpawn8 = Pawn("bP", "h7")
 DEFAULT_BLACK_BOARD_MAP = {
     "bP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
 }
+
+"""
+DEFAULT_WHITE_BOARD_MAP = {
+    "wP": ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
+    "wN": ["b0", "g0"],
+    "wB": ["c0", "f0"],
+    "wR": ["a0", "h0"],
+    "wQ": ["d0"],
+    "wK": ["e0"],
+}
+"""
 
 """
 # dicionário com as coordenadas das peças pretas
