@@ -15,12 +15,10 @@ class Pawn(Piece):
         self.available_moves = []
         current_x = self.current_pos[0]
         current_y = int(self.current_pos[1])
-        self.available_moves.append([current_x, current_y + 1 * self.direction])
-        if self.number_of_turns == 0:
-            self.available_moves.append([current_x, current_y + 2 * self.direction])
-        for square in self.available_moves:
-            if board[8 - square[1]][servidor.letter.index(square[0])] != "  ":
-                self.available_moves.remove(square)
+        if board[8 - current_y + 1][servidor.letter.index(current_x)] != "  ":
+            self.available_moves.append([current_x, current_y + 1 * self.direction])
+            if self.number_of_turns == 0 :
+                self.available_moves.append([current_x, current_y + 2 * self.direction])
 
         # Attack moves
         current_x = servidor.letter.index(current_x)

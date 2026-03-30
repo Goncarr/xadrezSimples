@@ -1,9 +1,20 @@
 from servidor.pieces.piece import Piece
+import servidor
 
 class Rook(Piece):
     def __init__(self,piece:str, current_pos):
         super().__init__(piece,current_pos)
 
-
-    def move(self):
-        pass
+    def move(self, piece: Piece, move_requested: str, board: list):
+        current_x, current_y = servidor.letter.index(self.current_pos[0]), 8 - int(self.current_pos[1])
+        move_x, move_y = move_requested[0], int(move_requested[1])
+        print(self.available_moves)
+        move = [move_x, move_y]
+        print(move)
+        if move in self.available_moves:
+            print("Move in dict")
+            move[0] = servidor.letter.index(move[0])
+            print(move)
+            board[current_y][current_x] = "  "
+            board[8 - move[1]][move[0]] = piece
+            self.current_pos = move_requested

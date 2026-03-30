@@ -1,6 +1,9 @@
 # dicionário com as coordenadas das peças brancas
 from servidor.pieces.pawn import Pawn
 from servidor.pieces.king import King
+from servidor.pieces.rook import Rook
+from servidor.pieces.bishop import Bishop
+from servidor.pieces.queen import Queen
 
 wpawn = Pawn("wP", "a2")
 wpawn2 = Pawn("wP", "b2")
@@ -11,9 +14,15 @@ wpawn6 = Pawn("wP", "f2")
 wpawn7 = Pawn("wP", "g2")
 wpawn8 = Pawn("wP", "h2")
 wking = King("wK", "b4")
+wrook = Rook("wR", "f4")
+wbishop = Bishop("wB", "e4")
+wqueen = Queen("wQ", "d5")
 DEFAULT_WHITE_BOARD_MAP = {
     "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8],
     "wK": [wking],
+    "wR": [wrook],
+    "wB": [wbishop],
+    "wQ": [wqueen]
 }
 
 bpawn = Pawn("bP", "a7")
