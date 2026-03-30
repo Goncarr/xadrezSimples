@@ -1,5 +1,6 @@
 # dicionário com as coordenadas das peças brancas
 from servidor.pieces.pawn import Pawn
+from servidor.pieces.king import King
 
 wpawn = Pawn("wP", "a2")
 wpawn2 = Pawn("wP", "b2")
@@ -9,9 +10,10 @@ wpawn5 = Pawn("wP", "e2")
 wpawn6 = Pawn("wP", "f2")
 wpawn7 = Pawn("wP", "g2")
 wpawn8 = Pawn("wP", "h2")
-
+wking = King("wK", "b4")
 DEFAULT_WHITE_BOARD_MAP = {
-    "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8]
+    "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8],
+    "wK": [wking],
 }
 
 bpawn = Pawn("bP", "a7")
@@ -50,6 +52,7 @@ DEFAULT_BLACK_BOARD_MAP = {
 }
 """
 
+"""
 col_map = {
     "a":0,
     "b":1,
@@ -60,6 +63,9 @@ col_map = {
     "g":6,
     "h":7,
 }
+"""
+
+letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 COMMAND_SIZE = 9
 INT_SIZE = 8

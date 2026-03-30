@@ -8,7 +8,7 @@ if __name__ == "__main__":
     while True:
         chess_board.print_board()
         position = input("Escolha a posição da peça")
-        x, y =  servidor.col_map[position[0]], 8 - int(position[1])
+        x, y =  servidor.letter.index(position[0]), 8 - int(position[1])
         current_pos = chess_board.board[y][x]
         if current_pos != "  ":
             piece = current_pos
