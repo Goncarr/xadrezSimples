@@ -4,6 +4,7 @@ from servidor.pieces.king import King
 from servidor.pieces.rook import Rook
 from servidor.pieces.bishop import Bishop
 from servidor.pieces.queen import Queen
+from servidor.pieces.knight import Knight
 
 wpawn = Pawn("wP", "a2")
 wpawn2 = Pawn("wP", "b2")
@@ -13,29 +14,46 @@ wpawn5 = Pawn("wP", "e2")
 wpawn6 = Pawn("wP", "f2")
 wpawn7 = Pawn("wP", "g2")
 wpawn8 = Pawn("wP", "h2")
-wking = King("wK", "b4")
-wrook = Rook("wR", "f4")
-wbishop = Bishop("wB", "e4")
-wqueen = Queen("wQ", "d5")
+wking = King("wK", "e1")
+wrook1 = Rook("wR", "a1")
+wrook2 = Rook("wR", "h1")
+wbishop1 = Bishop("wB", "f1")
+wbishop2 = Bishop("wB", "c1")
+wqueen = Queen("wQ", "d1")
+wknight1 = Knight("wT", "b1")
+wknight2 = Knight("wT", "g1")
 DEFAULT_WHITE_BOARD_MAP = {
     "wP": [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8],
     "wK": [wking],
-    "wR": [wrook],
-    "wB": [wbishop],
-    "wQ": [wqueen]
+    "wR": [wrook1, wrook2],
+    "wB": [wbishop1, wbishop2],
+    "wQ": [wqueen],
+    "wT": [wknight1,wknight2]
 }
 
-bpawn = Pawn("bP", "a7")
-bpawn2 = Pawn("bP", "b7")
-bpawn3 = Pawn("bP", "c7")
-bpawn4 = Pawn("bP", "d7")
-bpawn5 = Pawn("bP", "e7")
-bpawn6 = Pawn("bP", "f7")
-bpawn7 = Pawn("bP", "g7")
-bpawn8 = Pawn("bP", "h7")
-
+bpawn = Pawn("wP", "a7")
+bpawn2 = Pawn("wP", "b7")
+bpawn3 = Pawn("wP", "c7")
+bpawn4 = Pawn("wP", "d7")
+bpawn5 = Pawn("wP", "e7")
+bpawn6 = Pawn("wP", "f7")
+bpawn7 = Pawn("wP", "g7")
+bpawn8 = Pawn("wP", "h7")
+bking = King("wK", "e8")
+brook1 = Rook("wR", "a8")
+brook2 = Rook("wR", "h8")
+bbishop1 = Bishop("wB", "f8")
+bbishop2 = Bishop("wB", "c8")
+bqueen = Queen("wQ", "d8")
+bknight1 = Knight("wT", "b8")
+bknight2 = Knight("wT", "g8")
 DEFAULT_BLACK_BOARD_MAP = {
-    "bP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
+    "wP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
+    "wK": [bking],
+    "wR": [brook1, brook2],
+    "wB": [bbishop1, bbishop2],
+    "wQ": [bqueen],
+    "wT": [bknight1,bknight2]
 }
 
 """

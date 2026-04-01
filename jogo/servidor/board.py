@@ -1,5 +1,6 @@
 import servidor
 from servidor.pieces.piece import Piece
+
 class Board:
     def __init__(self):
         self.board: list = []
