@@ -2,8 +2,8 @@ from servidor.pieces.piece import Piece
 import servidor
 
 class Knight(Piece):
-    def __init__(self,piece:str, current_pos):
-        super().__init__(piece,current_pos)
+    def init(self,piece:str, current_pos):
+        super().init(piece,current_pos)
 
     def check_available_moves(self, board: list[list]):
         self.available_moves:list = []
@@ -20,7 +20,7 @@ class Knight(Piece):
         for dy, dx in offsets:
             new_y = current_y + dy
             new_x = current_x + dx
-            if 0 <= new_y < 7 and 0 <= new_x < 7:
+            if 0 <= new_y < 8 and 0 <= new_x < 8:
                 target = board[new_y][new_x]
                 if target == "  ":
                     self.available_moves.append([servidor.letter[new_x], 8 - new_y])
