@@ -59,42 +59,6 @@ DEFAULT_BLACK_BOARD_MAP = {
     "bT": [bknight1,bknight2]
 }
 
-"""
-DEFAULT_WHITE_BOARD_MAP = {
-    "wP": ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1"],
-    "wN": ["b0", "g0"],
-    "wB": ["c0", "f0"],
-    "wR": ["a0", "h0"],
-    "wQ": ["d0"],
-    "wK": ["e0"],
-}
-"""
-
-"""
-# dicionário com as coordenadas das peças pretas
-DEFAULT_BLACK_BOARD_MAP = {
-    "bP": ["a6", "b6", "c6", "d6", "e6", "f6", "g6", "h6"],
-    "bN": ["b7", "f7"],
-    "bB": ["c7", "g7"],
-    "bR": ["a7", "h7"],
-    "bQ": ["d7"],
-    "bK": ["e7"],
-}
-"""
-
-"""
-col_map = {
-    "a":0,
-    "b":1,
-    "c":2,
-    "d":3,
-    "e":4,
-    "f":5,
-    "g":6,
-    "h":7,
-}
-"""
-
 letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 COMMAND_SIZE = 9

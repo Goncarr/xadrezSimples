@@ -5,45 +5,36 @@ class Pawn(Piece):
         super().__init__(piece,current_pos)
         self.number_of_turns = 0
         self.direction = 1 if "w" in self.piece else -1
-    def check_available_moves(self,board:list[list]):
-        """
-        Se turno = 0, move 1 ou 2, adiciona a available
-        Se turno > 0, move 1, adiciona available
-        Se tem peça nesses espaços, remove espaço do available
-        Se peça na diagonal, adiciona a available
-        """
+
+    def check_available_moves(self, board: list[list]):
         self.available_moves = []
+
         current_x = self.current_pos[0]
+        current_x_id = servidor.letter.index(current_x)
         current_y = int(self.current_pos[1])
-        if board[8 - current_y + 1 * self.direction][servidor.letter.index(current_x)] != "  ":
-            self.available_moves.append([current_x, current_y + 1 * self.direction])
-            if self.number_of_turns == 0 :
-                self.available_moves.append([current_x, current_y + 2 * self.direction])
 
-        # Attack moves
-        current_x = servidor.letter.index(current_x)
-        diagonal_left = servidor.letter[current_x - 1]
+        next_y = current_y + self.direction
+        if 1 <= next_y <= 8:
+            if board[8 - next_y][current_x_id] == "  ":
+                self.available_moves.append([current_x, next_y])
 
-        if self.direction == 1:
-            square_diag_left = board[current_y ][servidor.letter.index(diagonal_left)]
-        else:
-            square_diag_left = board[current_y - 2][servidor.letter.index(diagonal_left)]
+                next_y_2 = current_y + (2 * self.direction)
+                if self.number_of_turns == 0 and 1 <= next_y_2 <= 8:
+                    if board[8 - next_y_2][current_x_id] == "  ":
+                        self.available_moves.append([current_x, next_y_2])
 
-        if square_diag_left != "  " and diagonal_left != "h":
-            self.available_moves.append([diagonal_left,current_y + 1 * self.direction])
+        for offset in [-1, 1]:
+            target_idx_x = current_x_id + offset
+            target_y_val = current_y + self.direction
 
-        try:
-            diagonal_right = servidor.letter[current_x + 1]
+            if 0 <= target_idx_x <= 7 and 1 <= target_y_val <= 8:
+                target_char_x = servidor.letter[target_idx_x]
+                target_piece = board[8 - target_y_val][target_idx_x]
 
-            if self.direction == 1:
-                square_diag_right = board[current_y][servidor.letter.index(diagonal_right)]
-            else:
-                square_diag_right = board[current_y - 2][servidor.letter.index(diagonal_right)]
-
-            if square_diag_right != "  ":
-                self.available_moves.append([diagonal_right, current_y + 1 * self.direction])
-        except IndexError:
-            print("Not a valid Move")
+                if target_piece != "  ":
+                    color = "w" if "w" in self.piece else "b"
+                    if color not in target_piece.piece[0]:
+                        self.available_moves.append([target_char_x, target_y_val])
 
 
 
