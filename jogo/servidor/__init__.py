@@ -31,29 +31,32 @@ DEFAULT_WHITE_BOARD_MAP = {
     "wT": [wknight1,wknight2]
 }
 
-bpawn = Pawn("wP", "a7")
-bpawn2 = Pawn("wP", "b7")
-bpawn3 = Pawn("wP", "c7")
-bpawn4 = Pawn("wP", "d7")
-bpawn5 = Pawn("wP", "e7")
-bpawn6 = Pawn("wP", "f7")
-bpawn7 = Pawn("wP", "g7")
-bpawn8 = Pawn("wP", "h7")
-bking = King("wK", "e8")
-brook1 = Rook("wR", "a8")
-brook2 = Rook("wR", "h8")
-bbishop1 = Bishop("wB", "f8")
-bbishop2 = Bishop("wB", "c8")
-bqueen = Queen("wQ", "d8")
-bknight1 = Knight("wT", "b8")
-bknight2 = Knight("wT", "g8")
+bpawn = Pawn("bP", "a7")
+bpawn2 = Pawn("bP", "b7")
+bpawn3 = Pawn("bP", "c7")
+bpawn4 = Pawn("bP", "d7")
+bpawn5 = Pawn("bP", "e7")
+bpawn6 = Pawn("bP", "f7")
+bpawn7 = Pawn("bP", "g7")
+bpawn8 = Pawn("bP", "h7")
+bking = King("bK", "e8")
+brook1 = Rook("bR", "a8")
+brook2 = Rook("bR", "h8")
+bbishop1 = Bishop("bB", "f8")
+bbishop2 = Bishop("bB", "c8")
+bqueen = Queen("bQ", "d8")
+bknight1 = Knight("bT", "b8")
+bknight2 = Knight("bT", "g8")
+
+all_black_pieces = [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8, bking, brook1, brook2, bbishop1, bbishop2, bqueen, bknight1, bknight2]
+all_white_pieces = [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8, wking, wrook1, wrook2, wbishop1, wbishop2, wqueen, wknight1, wknight2]
 DEFAULT_BLACK_BOARD_MAP = {
-    "wP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
-    "wK": [bking],
-    "wR": [brook1, brook2],
-    "wB": [bbishop1, bbishop2],
-    "wQ": [bqueen],
-    "wT": [bknight1,bknight2]
+    "bP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
+    "bK": [bking],
+    "bR": [brook1, brook2],
+    "bB": [bbishop1, bbishop2],
+    "bQ": [bqueen],
+    "bT": [bknight1,bknight2]
 }
 
 """

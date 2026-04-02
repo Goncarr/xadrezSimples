@@ -1,6 +1,5 @@
 from servidor.pieces.piece import Piece
 import servidor
-from colorama import  Back
 
 class Knight(Piece):
     def __init__(self,piece:str, current_pos):
@@ -25,7 +24,6 @@ class Knight(Piece):
                 target = board[new_y][new_x]
                 if target == "  ":
                     self.available_moves.append([servidor.letter[new_x], 8 - new_y])
-                    target += f"{Back.WHITE}"
 
                 else:
                     if self.piece[0] != target.piece[0]:
