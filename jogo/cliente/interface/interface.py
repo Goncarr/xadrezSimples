@@ -1,8 +1,6 @@
 import socket
 import json
 import cliente
-import servidor
-
 
 class Interface:
 	def __init__(self):
@@ -62,14 +60,19 @@ class Interface:
 				print(self.receive_object(self.connection))
 				while True:
 					print(self.receive_object(self.connection))
-					board = self.receive_object(self.connection)
+					board = self.receive_object(self.connection) # Receives the board
 					for line in board:
 						print(line)
-					print(self.receive_object(self.connection))
+					print(self.receive_object(self.connection)) # Receives
 					turno = self.receive_object(self.connection)
 					if turno == cliente.MOVE:
 						while True:
-							self.send_str(self.connection, cliente.SELECT)
+							option = input("Seleciona uma opção: ")
+							if option == "select":
+								option = cliente.SELECT
+							else:
+								break
+							self.send_str(self.connection, option)
 							piece = input("Select the space of a piece of your color: ")
 							self.send_object(self.connection, piece)
 							square_status = self.receive_object(self.connection)
@@ -77,10 +80,11 @@ class Interface:
 								print("This square is empty!")
 							elif square_status == cliente.OPPO_COL:
 								print("This piece is not yours!")
-							else:
+							elif square_status == cliente.VALID_SQUARE:
 								print("Choose an available move from this list!")
 								break
 					else:
 						print("I can wait")
+						self.receive_str(self.connection, cliente.COMMAND_SIZE)
 					break
 		self.send_str(self.connection, cliente.END_OP)

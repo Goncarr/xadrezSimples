@@ -74,9 +74,11 @@ class Match:
                 self.send_object(self.white, servidor.MOVE)
                 self.send_object(self.black, servidor.WAIT)
 
-                request_type = self.receive_str(self.white, servidor.INT_SIZE)
+                request_type = self.receive_object(self.white)
+                print(request_type)
                 if request_type == servidor.SELECT:
                     piece = self.receive_object(self.white)
+                    print(piece)
                     x, y = servidor.letter.index(piece[0]), 8 - int(piece[1])
                     current_sq = chess_board.board[y][x]
                     if current_sq == "  ":
@@ -97,9 +99,9 @@ class Match:
                 self.send_object(self.white, servidor.WAIT)
                 self.send_object(self.black, servidor.MOVE)
 
-                request_type = self.receive_str(self.white, servidor.INT_SIZE)
+                request_type = self.receive_object(self.black)
                 if request_type == servidor.SELECT:
-                    piece = self.receive_object(self.white)
+                    piece = self.receive_object(self.black)
                     x, y = servidor.letter.index(piece[0]), 8 - int(piece[1])
                     current_sq = chess_board.board[y][x]
                     if current_sq == "  ":
