@@ -43,5 +43,17 @@ class Board:
         print(
             " " * 3 + "a" + " " * 2 + "b" + " " * 2 + "c" + " " * 2 + "d" + " " * 2 + "e" + " " * 2 + "f" + " " * 2 + "g" + " " * 2 + "h")
 
-
-
+    def simple_print_board(self):
+        serializable_matrix = []
+        for row in self.board:
+            row_data = []
+            for col in row:
+                # If it's an empty string or "  ", just add it
+                if isinstance(col, str):
+                    row_data.append(col.strip() if col.strip() else "--")
+                else:
+                    # If it's a Piece object, take its string representation
+                    # Assuming 'col.piece' is a string like 'wR' or 'bP'
+                    row_data.append(col.piece)
+            serializable_matrix.append(row_data)
+        return serializable_matrix
