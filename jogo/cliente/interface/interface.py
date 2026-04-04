@@ -67,24 +67,25 @@ class Interface:
 							option = input("Seleciona uma opção: ")
 							if option == "select":
 								option = cliente.SELECT
-								self.send_str(self.connection, cliente.SELECT)
+								self.send_str(self.connection, option)
+								piece = input("Select the space of a piece of your color: ")
+								self.send_object(self.connection, piece)
+								square_status = self.receive_object(self.connection)
+								if square_status == cliente.EMPTY:
+									print("This square is empty!")
+									break
+								elif square_status == cliente.OPPO_COL:
+									print("This piece is not yours!")
+									break
+								elif square_status == cliente.VALID_SQUARE:
+									print("Choose an available move from this list!")
+									break
 							else:
 								print("asfcf")
 
-							print(option == cliente.SELECT)
 
-							piece = input("Select the space of a piece of your color: ")
-							self.send_object(self.connection, piece)
-							square_status = self.receive_object(self.connection)
-							if square_status == cliente.EMPTY:
-								print("This square is empty!")
-							elif square_status == cliente.OPPO_COL:
-								print("This piece is not yours!")
-							elif square_status == cliente.VALID_SQUARE:
-								print("Choose an available move from this list!")
-								break
+
 					else:
 						print("I can wait")
-						self.receive_object(self.connection)
-					break
+
 		self.send_str(self.connection, cliente.END_OP)

@@ -28,7 +28,7 @@ DEFAULT_WHITE_BOARD_MAP = {
     "wR": [wrook1, wrook2],
     "wB": [wbishop1, wbishop2],
     "wQ": [wqueen],
-    "wT": [wknight1, wknight2]
+    "wT": [wknight1,wknight2]
 }
 
 bpawn = Pawn("bP", "a7")
@@ -48,17 +48,15 @@ bqueen = Queen("bQ", "d8")
 bknight1 = Knight("bT", "b8")
 bknight2 = Knight("bT", "g8")
 
-all_black_pieces = [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8, bking, brook1, brook2, bbishop1,
-                    bbishop2, bqueen, bknight1, bknight2]
-all_white_pieces = [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8, wking, wrook1, wrook2, wbishop1,
-                    wbishop2, wqueen, wknight1, wknight2]
+all_black_pieces = [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8, bking, brook1, brook2, bbishop1, bbishop2, bqueen, bknight1, bknight2]
+all_white_pieces = [wpawn, wpawn2, wpawn3, wpawn4, wpawn5, wpawn6, wpawn7, wpawn8, wking, wrook1, wrook2, wbishop1, wbishop2, wqueen, wknight1, wknight2]
 DEFAULT_BLACK_BOARD_MAP = {
     "bP": [bpawn, bpawn2, bpawn3, bpawn4, bpawn5, bpawn6, bpawn7, bpawn8],
     "bK": [bking],
     "bR": [brook1, brook2],
     "bB": [bbishop1, bbishop2],
     "bQ": [bqueen],
-    "bT": [bknight1, bknight2]
+    "bT": [bknight1,bknight2]
 }
 
 letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -71,12 +69,12 @@ SYM_OP = "sym      "
 SUB_OP = "sub      "
 BYE_OP = "bye      "
 END_OP = "stop     "
-PLAY = "play     "  #client chooses to enter the queue to play
-MOVE = "move     "  #it's the player's turn to play
-WAIT = "wait     "  #it's the other player's turn
-SELECT = "select   "  #player decides to select something
-EMPTY = "empty    "
-OPPO_COL = "oppo_col "
+PLAY   = "play     " #client chooses to enter the queue to play
+MOVE   = "move     " #it's the player's turn to play
+WAIT   = "wait     " #it's the other player's turn
+SELECT = "select   " #player decides to select something
+EMPTY =  "empty    "
+OPPO_COL="oppo_col "
 VALID_SQUARE = "valid_sqr"
 PORT = 35000
 SERVER_ADDRESS = "localhost"

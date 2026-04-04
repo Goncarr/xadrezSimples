@@ -97,8 +97,8 @@ class Match:
                 self.send_object(self.white, "It's Black's turn!")
                 self.send_object(self.black, "It's Black's turn!")
 
-                self.send_object(self.white, servidor.WAIT)
-                self.send_object(self.black, servidor.MOVE)
+                self.send_str(self.white, servidor.WAIT)
+                self.send_str(self.black, servidor.MOVE)
 
                 request_type = self.receive_str(self.black, servidor.COMMAND_SIZE)
                 if request_type == servidor.SELECT:
@@ -116,4 +116,3 @@ class Match:
                         break
                         # piece = current_sq
                         # piece.check_available_moves(chess_board.board)
-            break
