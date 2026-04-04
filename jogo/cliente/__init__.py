@@ -16,5 +16,3 @@ VALID_SQUARE = "valid_sqr"
 PORT = 35000
 SERVER_ADDRESS = "localhost"
 
-# WHITE -> MAKE A MOVE
-# BLACK -> WAIT

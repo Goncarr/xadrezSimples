@@ -1,7 +1,6 @@
 import json
 import socket
 
-import cliente
 import servidor
 from servidor.board import Board
 
@@ -71,10 +70,10 @@ class Match:
                 self.send_object(self.white, "It's White's turn!")
                 self.send_object(self.black, "It's White's turn!")
 
-                self.send_object(self.white, servidor.MOVE)
-                self.send_object(self.black, servidor.WAIT)
+                self.send_str(self.white, servidor.MOVE)
+                self.send_str(self.black, servidor.WAIT)
 
-                request_type = self.receive_object(self.white)
+                request_type = self.receive_str(self.white, servidor.COMMAND_SIZE)
                 print(request_type)
                 if request_type == servidor.SELECT:
                     piece = self.receive_object(self.white)
@@ -92,6 +91,8 @@ class Match:
                         break
                         #piece = current_sq
                         #piece.check_available_moves(chess_board.board)
+                else:
+                    print("ops")
             else:
                 self.send_object(self.white, "It's Black's turn!")
                 self.send_object(self.black, "It's Black's turn!")
@@ -99,7 +100,7 @@ class Match:
                 self.send_object(self.white, servidor.WAIT)
                 self.send_object(self.black, servidor.MOVE)
 
-                request_type = self.receive_object(self.black)
+                request_type = self.receive_str(self.black, servidor.COMMAND_SIZE)
                 if request_type == servidor.SELECT:
                     piece = self.receive_object(self.black)
                     x, y = servidor.letter.index(piece[0]), 8 - int(piece[1])

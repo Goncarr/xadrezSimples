@@ -31,9 +31,6 @@ class Interface:
 		return int.from_bytes(data, byteorder='big', signed=True)
 
 
-	#TODO
-	# Implement a method that sends and object and returns an object.
-	# ...
 	def send_object(self,connection, obj):
 		"""1º: envia tamanho, 2º: envia dados."""
 		data = json.dumps(obj).encode('utf-8')
@@ -58,21 +55,24 @@ class Interface:
 			if res =="play":
 				self.send_str(self.connection, cliente.PLAY)
 				print(self.receive_object(self.connection))
+				print(self.receive_object(self.connection))
 				while True:
-					print(self.receive_object(self.connection))
 					board = self.receive_object(self.connection) # Receives the board
 					for line in board:
 						print(line)
 					print(self.receive_object(self.connection)) # Receives
-					turno = self.receive_object(self.connection)
+					turno = self.receive_str(self.connection, cliente.COMMAND_SIZE)
 					if turno == cliente.MOVE:
 						while True:
 							option = input("Seleciona uma opção: ")
 							if option == "select":
 								option = cliente.SELECT
+								self.send_str(self.connection, cliente.SELECT)
 							else:
-								break
-							self.send_str(self.connection, option)
+								print("asfcf")
+
+							print(option == cliente.SELECT)
+
 							piece = input("Select the space of a piece of your color: ")
 							self.send_object(self.connection, piece)
 							square_status = self.receive_object(self.connection)
@@ -85,6 +85,6 @@ class Interface:
 								break
 					else:
 						print("I can wait")
-						self.receive_str(self.connection, cliente.COMMAND_SIZE)
+						self.receive_object(self.connection)
 					break
 		self.send_str(self.connection, cliente.END_OP)
