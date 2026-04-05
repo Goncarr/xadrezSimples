@@ -13,6 +13,11 @@ SELECT = "select   " #player decides to select something
 EMPTY =  "empty    "
 OPPO_COL = "oppo_col "
 VALID_SQUARE = "valid_sqr"
+INVALID_COMMAND = "invalid  "
+ACTIVE = "active"
+CHECK = "check    "
+CHECKMATE = "checkmate"
+STALEMATE = "stalemate"
 PORT = 35000
 SERVER_ADDRESS = "localhost"
 
